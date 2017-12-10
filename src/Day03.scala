@@ -3,12 +3,14 @@ import scala.collection.mutable
 object Day03 extends App {
   val input = 347991
 
-  import scala.math._
-  val radius = ceil((sqrt(input) - 1) / 2)
-  val max = pow(radius * 2 + 1, 2) + 1
-  val circumference = radius * 8
-  val dist = abs((circumference + input - max) % (radius * 2) - radius + 1) + radius
-  println(dist)
+  def dist(num: Int) = {
+    import scala.math._
+    val radius = ceil((sqrt(input) - 1) / 2)
+    val max = pow(radius * 2 + 1, 2) + 1
+    val circumference = radius * 8
+    abs((circumference + input - max) % (radius * 2) - radius + 1) + radius
+  }
+  println(dist(input))
 
   def distance(n: Int): Int =
     if (n == 1)
